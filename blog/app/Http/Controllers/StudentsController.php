@@ -15,7 +15,7 @@ class StudentsController extends Controller
      */
     public function index()
     {
-        $data = Student::select('id','name')->orderBy('id','DESC')->get()->toArray();
+        $data = Student::select('id','name','mssv')->orderBy('id','DESC')->get()->toArray();
         return view('student/list',compact('data'));
     }
 
@@ -39,6 +39,7 @@ class StudentsController extends Controller
     {
         $student = new Student;
         $student->name = $request->TXTname;
+        $student->mssv = $request->TXTmssv;
         $student->school_year = $request->TXTschoolyear;
         $student->class = $request->TXTclass;
         $student->birthday = $request->TXTbirthday;
@@ -48,6 +49,7 @@ class StudentsController extends Controller
         $student->farther_name = $request->TXTfarthername;
         $student->morther_name = $request->TXTmorthername;
         $student->save();
+        return redirect()->route('students.index');
     }
 
     /**
@@ -58,7 +60,8 @@ class StudentsController extends Controller
      */
     public function show($id)
     {
-        //
+        $data = Student::findOrFail($id);
+        return view('student/show',['data'=>$data]);
     }
 
     /**
@@ -69,7 +72,8 @@ class StudentsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data = Student::findOrFail($id);
+        return view('student/edit',['data'=>$data]);
     }
 
     /**
@@ -81,7 +85,19 @@ class StudentsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $student = Student::find($id);
+        $student->name = $request->TXTname;
+        $student->mssv = $request->TXTmssv;
+        $student->school_year = $request->TXTschoolyear;
+        $student->class = $request->TXTclass;
+        $student->birthday = $request->TXTbirthday;
+        $student->email = $request->TXTemail;
+        $student->phone = $request->TXTphone;
+        $student->address = $request->TXTaddress;
+        $student->farther_name = $request->TXTfarthername;
+        $student->morther_name = $request->TXTmorthername;
+        $student->save();
+        return redirect()->route('students.index');
     }
 
     /**
@@ -92,6 +108,9 @@ class StudentsController extends Controller
      */
     public function destroy($id)
     {
-        //
+
+        $student = Student::find($id);
+        $student->delete();
+        return redirect()->route('students.index');
     }
 }
