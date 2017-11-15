@@ -17,61 +17,49 @@
 				<div class="form-group">
 					<label class="col-md-3 control-label">Name</label>
 					<div class="col-md-9">
-						<input class="form-control" type="text" placeholder="name" name="TXTname">
+						<input class="form-control" type="text" placeholder="name" name="name">
 					</div>
 				</div>
 				<div class="form-group">
-					<label class="col-md-3 control-label">MSSV</label>
+					<label class="col-md-3 control-label">Student code</label>
 					<div class="col-md-9">
-						<input class="form-control" type="text" placeholder="name" name="TXTmssv">
+						<input class="form-control" type="text" placeholder="name" name="studentCode">
 					</div>
 				</div>
 				<div class="form-group">
 					<label class="col-md-3 control-label">School year</label>
 					<div class="col-md-9">
-						<input class="form-control" type="text" placeholder="name" name="TXTschoolyear">
-					</div>
-				</div>
-				<div class="form-group">
-					<label class="col-md-3 control-label">Class</label>
-					<div class="col-md-9">
-						<input class="form-control" type="text" placeholder="name" name="TXTclass">
+						<input class="form-control" type="text" placeholder="name" name="schoolYear">
 					</div>
 				</div>
 				<div class="form-group">
 					<label class="col-md-3 control-label">Birhday</label>
 					<div class="col-md-9">
-						<input class="form-control" type="date" placeholder="name" name="TXTbirthday">
+						<input class="form-control" type="date" placeholder="name" name="birthday">
 					</div>
 				</div>
 				<div class="form-group">
 					<label class="col-md-3 control-label">email</label>
 					<div class="col-md-9">
-						<input class="form-control" type="email" placeholder="name" name="TXTemail">
+						<input class="form-control" type="email" placeholder="name" name="email">
 					</div>
 				</div>
 				<div class="form-group">
 					<label class="col-md-3 control-label">phone</label>
 					<div class="col-md-9">
-						<input class="form-control" type="text" placeholder="name" name="TXTphone">
+						<input class="form-control" type="text" placeholder="name" name="phone">
 					</div>
 				</div>
 				<div class="form-group">
 					<label class="col-md-3 control-label">address</label>
 					<div class="col-md-9">
-						<input class="form-control" type="text" placeholder="name" name="TXTaddress">
+						<input class="form-control" type="text" placeholder="name" name="address">
 					</div>
 				</div>
 				<div class="form-group">
-					<label class="col-md-3 control-label">farther</label>
+					<label class="col-md-3 control-label">sex</label>
 					<div class="col-md-9">
-						<input class="form-control" type="text" placeholder="name" name="TXTfarthername">
-					</div>
-				</div>
-				<div class="form-group">
-					<label class="col-md-3 control-label">morther</label>
-					<div class="col-md-9">
-						<input class="form-control" type="text" placeholder="name" name="TXTmorthername">
+						<input class="form-control" type="text" placeholder="name" name="sex">
 					</div>
 				</div>
 				<button type="submit" class="btn btn-default">Add</button>

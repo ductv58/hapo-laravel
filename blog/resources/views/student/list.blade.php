@@ -17,7 +17,7 @@
 			        <tr align="center">
 			            <th>ID</th>
 			            <th>Name</th>
-			            <th>MSSV</th>
+			            <th>Student code</th>
 			            <th>show</th>
 			            <th>Delete</th>
 			            <th>Edit</th>
@@ -30,7 +30,7 @@
 			        <tr class="odd gradeX" align="center">
 			            <td>{!! $stt !!}</td>
 			            <td>{!! $item["name"] !!}</td>
-			            <td>{!! $item["mssv"] !!}</td>
+			            <td>{!! $item["student_code"] !!}</td>
 			            <td><a href="{{ route('students.show',$item['id']) }}">show</a></td>
 			            <td>
 			            	<form action="{{ route('students.destroy',$item['id']) }}" method="POST" accept-charset="utf-8" onsubmit=" return deleteStudent()">

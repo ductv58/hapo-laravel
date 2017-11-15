@@ -18,16 +18,12 @@
 					<td>{!! $data["name"] !!}</td>
 				</tr>
 				<tr>
-					<td>MSSV</td>
-					<td>{!! $data["mssv"] !!}</td>
+					<td>Student code</td>
+					<td>{!! $data["student_code"] !!}</td>
 				</tr>
 				<tr>
 					<td>school year</td>
 					<td>{!! $data["school_year"] !!}</td>
-				</tr>
-				<tr>
-					<td>class</td>
-					<td>{!! $data["class"] !!}</td>
 				</tr>
 				<tr>
 					<td>birthday</td>
@@ -46,12 +42,8 @@
 					<td>{!! $data["address"] !!}</td>
 				</tr>
 				<tr>
-					<td>farther</td>
-					<td>{!! $data["farther_name"] !!}</td>
-				</tr>
-				<tr>
-					<td>morther</td>
-					<td>{!! $data["morther_name"] !!}</td>
+					<td>sex</td>
+					<td>{!! $data["sex"] !!}</td>
 				</tr>
 			</table>
 		</div>

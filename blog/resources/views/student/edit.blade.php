@@ -64,15 +64,9 @@
 					</div>
 				</div>
 				<div class="form-group">
-					<label class="col-md-3 control-label">farther</label>
+					<label class="col-md-3 control-label">sex</label>
 					<div class="col-md-9">
-						<input class="form-control" type="text" placeholder="farther" value="{!! $data['farther_name'] !!}" name="TXTfarthername">
-					</div>
-				</div>
-				<div class="form-group">
-					<label class="col-md-3 control-label">morther</label>
-					<div class="col-md-9">
-						<input class="form-control" type="text" placeholder="morther" value="{!! $data['morther_name'] !!}" name="TXTmorthername">
+						<input class="form-control" type="text" placeholder="farther" value="{!! $data['sex'] !!}" name="TXTfarthername">
 					</div>
 				</div>
 				<button type="submit" class="btn btn-default">save</button>

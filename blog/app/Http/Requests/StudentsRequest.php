@@ -24,12 +24,12 @@ class StudentsRequest extends FormRequest
     public function rules()
     {
         return [
-            'TXTemail' => 'required',
+            'email' => 'required',
         ];
     }
     public function messages (){
         return [
-            'TXTemail.required' => 'The email field is required.',
+            'email.required' => 'The email field is required.',
         ];
     }
 }
