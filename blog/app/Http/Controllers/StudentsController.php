@@ -46,7 +46,6 @@ class StudentsController extends Controller
         $student->phone = $request->phone;
         $student->address = $request->address;
         $student->sex = $request->sex;
-        $student->type = $request->type;
         $student->save();
         return redirect()->route('students.index');
     }
@@ -94,7 +93,6 @@ class StudentsController extends Controller
         $student->phone = $request->txtPhone;
         $student->address = $request->txtAddress;
         $student->sex = $request->txtSex;
-        $student->type = $request->txtType;
         $student->save();
         return redirect()->route('students.index');
     }

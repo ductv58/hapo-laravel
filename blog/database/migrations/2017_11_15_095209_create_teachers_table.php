@@ -17,12 +17,12 @@ class CreateTeachersTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('email');
-            $table->string('pass');
+            $table->string('pass')->nullable();
             $table->date('birthday');
             $table->tinyInteger('sex');
             $table->integer('phone');
             $table->string('address');
-            $table->tinyInteger('type');
+            $table->string('teacher_code');
             $table->timestamps();
         });
     }

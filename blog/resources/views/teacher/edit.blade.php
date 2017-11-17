@@ -1,9 +1,9 @@
 @extends('master')
 @section('content')
 <div class="panel panel-default col-md-8 col-md-offset-1" style="padding: 0;margin-top: 10%;">
-	<div class="panel-heading">edit student</div>
+	<div class="panel-heading">Edit teacher</div>
 	<div class="panel-body">
-		<form action="{{ route('students.update',$data['id']) }}" method="POST">
+		<form action="{{ route('teachers.update',$data['id']) }}" method="POST">
 		{{csrf_field()}}
 		{{ method_field('PUT') }}
 			<div class="form-group">
@@ -13,15 +13,9 @@
 				</div>
 			</div>
 			<div class="form-group">
-				<label class="col-md-3 control-label">Student code</label>
+				<label class="col-md-3 control-label">Teacher code</label>
 				<div class="col-md-9">
-					<input class="form-control" type="text" placeholder="student code" value="{!! $data['student_code'] !!}" name="studentCode">
-				</div>
-			</div>
-			<div class="form-group">
-				<label class="col-md-3 control-label">School year</label>
-				<div class="col-md-9">
-					<input class="form-control" type="text" placeholder="school year" value="{!! $data['school_year'] !!}" name="schoolyear">
+					<input class="form-control" type="text" placeholder="mssv" value="{!! $data['teacher_code'] !!}" name="teacherCode">
 				</div>
 			</div>
 			<div class="form-group">
@@ -51,13 +45,13 @@
 			<div class="form-group">
 				<label class="col-md-3 control-label">address</label>
 				<div class="col-md-9">
-					<input class="form-control" type="text" placeholder="address" value="{!! $data['address'] !!}" name="TXTaddress">
+					<input class="form-control" type="text" placeholder="address" value="{!! $data['address'] !!}" name="address">
 				</div>
 			</div>
 			<div class="form-group">
 				<label class="col-md-3 control-label">sex</label>
 				<div class="col-md-9">
-					<input class="form-control" type="text" placeholder="sex" value="{!! $data['sex'] !!}" name="sex">
+					<input class="form-control" type="text" placeholder="farther" value="{!! $data['sex'] !!}" name="sex">
 				</div>
 			</div>
 			<button type="submit" class="btn btn-default">save</button>

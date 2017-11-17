@@ -10,11 +10,7 @@
 			</tr>
 			<tr>
 				<td>Student code</td>
-				<td>{!! $data["student_code"] !!}</td>
-			</tr>
-			<tr>
-				<td>school year</td>
-				<td>{!! $data["school_year"] !!}</td>
+				<td>{!! $data["teacher_code"] !!}</td>
 			</tr>
 			<tr>
 				<td>birthday</td>

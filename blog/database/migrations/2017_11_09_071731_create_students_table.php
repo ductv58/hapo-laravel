@@ -16,6 +16,7 @@ class CreateStudentsTable extends Migration
         Schema::create('students', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
+            $table->string('pass')->nullable();
             $table->string('student_code');
             $table->tinyInteger('school_year');
             $table->date('birthday');
@@ -23,7 +24,6 @@ class CreateStudentsTable extends Migration
             $table->integer('phone');
             $table->string('address');
             $table->tinyInteger('sex');
-            $table->tinyInteger('type');
             $table->timestamps();
         });
     }
