@@ -10,4 +10,5 @@ class Teacher extends Model
     protected $fillable = [
         'id', 'name', 'teacher_code', 'birthday', 'email', 'phone', 'address','sex',
     ];
+    protected $hidden = ['password', 'remember_token'];
 }

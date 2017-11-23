@@ -15,7 +15,7 @@ class StudentsController extends Controller
      */
     public function index()
     {
-        $data = Student::select('id','name','student_code')->orderBy('id','DESC')->get()->toArray();
+        $data = Student::select('id','name','student_code')->orderBy('id','DESC')->get();
         return view('student/list',compact('data'));
     }
 

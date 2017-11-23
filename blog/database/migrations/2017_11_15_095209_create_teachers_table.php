@@ -23,6 +23,7 @@ class CreateTeachersTable extends Migration
             $table->integer('phone');
             $table->string('address');
             $table->string('teacher_code');
+            $table->rememberToken();
             $table->timestamps();
         });
     }

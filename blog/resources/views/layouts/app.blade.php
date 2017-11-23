@@ -1,14 +1,21 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="{{ app()->getLocale() }}">
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>hapolaravel</title>
-	<link rel="stylesheet" type="text/css" href="{{asset('css/app.css')}}">
-	<link rel="stylesheet" type="text/css" href="{{asset('css/style.css')}}">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
+    <title>{{ config('app.name', 'Laravel') }}</title>
+
+    <!-- Styles -->
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
-	<nav class="navbar navbar-default navbar-static-top">
+    <div id="app">
+        <nav class="navbar navbar-default navbar-static-top">
             <div class="container">
                 <div class="navbar-header">
 
@@ -62,29 +69,11 @@
                 </div>
             </div>
         </nav>
-	<div class="container-fluid">
-	<div class="row" style="margin: 0;">
-	<div class="col-md-2" style="height: 400px;">
-		<div class="list-group">
-		  	<a href="#" class="list-group-item disabled">Dashboard</a>
-		  	<a href="{{ route('students.index') }}" class="list-group-item">Student</a>
-		  	<a href="{{ route('teachers.index') }}" class="list-group-item">Teacher</a>
-		  	<a href="#" class="list-group-item">Class</a>
-		</div>
-	</div>
-	<div class="col-md-10">
-		<div class="row">
-			@yield('content')
-		</div>
-	</div>
-	</div>
-	</div>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	<script type="text/javascript">
-		function deleteStudent (){
-			return confirm("delete this student?.");	    
-		}
-	</script>
+
+        @yield('content')
+    </div>
+
+    <!-- Scripts -->
+    <script src="{{ asset('js/app.js') }}"></script>
 </body>
 </html>

@@ -15,7 +15,7 @@ class TeachersController extends Controller
      */
     public function index()
     {
-        $data = Teacher::select('id','name','teacher_code')->orderBy('id','DESC')->get()->toArray();
+        $data = Teacher::select('id','name','teacher_code')->orderBy('id','DESC')->get();
         return view('teacher/list',compact('data'));
     }
 

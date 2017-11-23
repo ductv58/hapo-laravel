@@ -24,6 +24,7 @@ class CreateStudentsTable extends Migration
             $table->integer('phone');
             $table->string('address');
             $table->tinyInteger('sex');
+            $table->rememberToken();
             $table->timestamps();
         });
     }
