@@ -39,6 +39,12 @@
 				</div>
 			</div>
 			<div class="form-group">
+				<label class="col-md-3 control-label">password</label>
+				<div class="col-md-9">
+					<input class="form-control" type="text" placeholder="password" name="password">
+				</div>
+			</div>
+			<div class="form-group">
 				<label class="col-md-3 control-label">phone</label>
 				<div class="col-md-9">
 					<input class="form-control" type="text" placeholder="phone" name="phone">

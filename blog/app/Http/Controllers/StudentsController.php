@@ -16,7 +16,7 @@ class StudentsController extends Controller
     public function index()
     {
         $data = Student::select('id','name','student_code')->orderBy('id','DESC')->get();
-        return view('student/list',compact('data'));
+        return view('student.list',compact('data'));
     }
 
     /**
@@ -26,7 +26,7 @@ class StudentsController extends Controller
      */
     public function create()
     {
-        return view('student/add');
+        return view('student.add');
     }
 
     /**
@@ -37,15 +37,16 @@ class StudentsController extends Controller
      */
     public function store(StudentsRequest $request)
     {
-        $student = new Student;
+        $student = new Student();
         $student->name = $request->name;
         $student->student_code = $request->studentCode;
         $student->school_year = $request->schoolYear;
         $student->birthday = $request->birthday;
         $student->email = $request->email;
         $student->phone = $request->phone;
+        $student->password = $request->password;
         $student->address = $request->address;
-        $student->sex = $request->sex;
+        $student->gender = $request->sex;
         $student->save();
         return redirect()->route('students.index');
     }
@@ -59,7 +60,7 @@ class StudentsController extends Controller
     public function show($id)
     {
         $data = Student::findOrFail($id);
-        return view('student/show',['data'=>$data]);
+        return view('student.show',['data'=>$data]);
     }
 
     /**
@@ -71,7 +72,7 @@ class StudentsController extends Controller
     public function edit($id)
     {
         $data = Student::findOrFail($id);
-        return view('student/edit',['data'=>$data]);
+        return view('student.edit',['data'=>$data]);
     }
 
     /**
@@ -92,7 +93,7 @@ class StudentsController extends Controller
         $student->email = $request->txtEmail;
         $student->phone = $request->txtPhone;
         $student->address = $request->txtAddress;
-        $student->sex = $request->txtSex;
+        $student->gender = $request->txtSex;
         $student->save();
         return redirect()->route('students.index');
     }

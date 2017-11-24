@@ -8,7 +8,7 @@ class Student extends Model
 {
 	protected $table = 'students';
     protected $fillable = [
-        'id', 'name', 'student_code', 'birthday', 'school_year', 'email', 'phone', 'address','sex',
+        'id', 'name', 'student_code', 'birthday', 'school_year', 'email', 'phone', 'address','gender', 'password',
     ];
     protected $hidden = [
         'password', 'remember_token',

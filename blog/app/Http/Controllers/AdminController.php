@@ -35,7 +35,7 @@ class AdminController extends Controller
         	
             return redirect()->route('admin.index');
         } 
-        return redirect()->back()->withErrors(['Username or Password is incorrect']);
+        return redirect()->back()->withErrors(['false'=>'Username or Password is incorrect']);
     }
      public function logout()
     {

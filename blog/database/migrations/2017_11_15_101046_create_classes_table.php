@@ -21,7 +21,7 @@ class CreateClassesTable extends Migration
             $table->tinyInteger('max_size');
             $table->tinyInteger('present');
             $table->tinyInteger('semester');
-            $table->string('class_code');
+            $table->string('class_code',50)->unique();
             $table->timestamps();
         });
     }

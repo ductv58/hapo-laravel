@@ -34,7 +34,7 @@
 			</tr>
 			<tr>
 				<td>sex</td>
-				<td>{!! $data["sex"] !!}</td>
+				<td>{!! $data["gender"] !!}</td>
 			</tr>
 		</table>
 	</div>

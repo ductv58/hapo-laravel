@@ -16,7 +16,7 @@ class TeachersController extends Controller
     public function index()
     {
         $data = Teacher::select('id','name','teacher_code')->orderBy('id','DESC')->get();
-        return view('teacher/list',compact('data'));
+        return view('teacher.list',compact('data'));
     }
 
     /**
@@ -26,7 +26,7 @@ class TeachersController extends Controller
      */
     public function create()
     {
-        return view('teacher/add');
+        return view('teacher.add');
     }
 
     /**
@@ -37,14 +37,15 @@ class TeachersController extends Controller
      */
     public function store(TeacherRequest $request)
     {
-        $teacher = new Teacher;
+        $teacher = new Teacher();
         $teacher->name = $request->name;
         $teacher->teacher_code = $request->teacherCode;
         $teacher->birthday = $request->birthday;
         $teacher->email = $request->email;
         $teacher->phone = $request->phone;
+        $teacher->password = $request->password;
         $teacher->address = $request->address;
-        $teacher->sex = $request->sex;
+        $teacher->gender = $request->sex;
         $teacher->save();
         return redirect()->route('teachers.index');
     }
@@ -58,7 +59,7 @@ class TeachersController extends Controller
     public function show($id)
     {
         $data = Teacher::findOrFail($id);
-        return view('teacher/show',['data'=>$data]);
+        return view('teacher.show',['data'=>$data]);
     }
 
     /**
@@ -70,7 +71,7 @@ class TeachersController extends Controller
     public function edit($id)
     {
         $data = Teacher::findOrFail($id);
-        return view('teacher/edit',['data'=>$data]);
+        return view('teacher.edit',['data'=>$data]);
     }
 
     /**
@@ -87,9 +88,10 @@ class TeachersController extends Controller
         $teacher->teacher_code = $request->teacherCode;
         $teacher->birthday = $request->birthday;
         $teacher->email = $request->email;
+        $teacher->password = $request->password;
         $teacher->phone = $request->phone;
         $teacher->address = $request->address;
-        $teacher->sex = $request->sex;
+        $teacher->gender = $request->sex;
         $teacher->save();
         return redirect()->route('teachers.index');
     }

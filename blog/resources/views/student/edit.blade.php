@@ -25,12 +25,6 @@
 				</div>
 			</div>
 			<div class="form-group">
-				<label class="col-md-3 control-label">Class</label>
-				<div class="col-md-9">
-					<input class="form-control" type="text" placeholder="class" value="{!! $data['class'] !!}" name="class">
-				</div>
-			</div>
-			<div class="form-group">
 				<label class="col-md-3 control-label">Birhday</label>
 				<div class="col-md-9">
 					<input class="form-control" type="date" value="{!! $data['birthday'] !!}" name="birthday">
@@ -40,6 +34,12 @@
 				<label class="col-md-3 control-label">email</label>
 				<div class="col-md-9">
 					<input class="form-control" type="email" placeholder="email" value="{!! $data['email'] !!}" name="email">
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-md-3 control-label">password</label>
+				<div class="col-md-9">
+					<input class="form-control" type="text" placeholder="password" value="{!! $data['password'] !!}" name="password">
 				</div>
 			</div>
 			<div class="form-group">
@@ -55,9 +55,9 @@
 				</div>
 			</div>
 			<div class="form-group">
-				<label class="col-md-3 control-label">sex</label>
+				<label class="col-md-3 control-label">gender</label>
 				<div class="col-md-9">
-					<input class="form-control" type="text" placeholder="sex" value="{!! $data['sex'] !!}" name="sex">
+					<input class="form-control" type="text" placeholder="sex" value="{!! $data['gender'] !!}" name="sex">
 				</div>
 			</div>
 			<button type="submit" class="btn btn-default">save</button>

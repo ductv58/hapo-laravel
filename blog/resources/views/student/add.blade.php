@@ -3,6 +3,15 @@
 <div class="panel panel-default col-md-8 col-md-offset-1" style="padding: 0;margin-top: 10%;">
 	<div class="panel-heading">Add student</div>
 	<div class="panel-body">
+		@if(count($errors) > 0)
+		    <div class="alert alert-danger">
+		        <ul>
+		            @foreach ($errors->all() as $error)
+		            <li>{!! $error !!}</li>
+		            @endforeach
+		        </ul>
+		    </div>
+		@endif
 		<form action="{{ route('students.store') }}" method="POST">
 		<input type="hidden" name="_token" value="{!! csrf_token() !!}"/>
 			<div class="form-group">
@@ -33,6 +42,12 @@
 				<label class="col-md-3 control-label">email</label>
 				<div class="col-md-9">
 					<input class="form-control" type="email" placeholder="name" name="email">
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-md-3 control-label">password</label>
+				<div class="col-md-9">
+					<input class="form-control" type="text" placeholder="name" name="password">
 				</div>
 			</div>
 			<div class="form-group">
