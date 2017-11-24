@@ -13,4 +13,9 @@ class Student extends Model
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function points()
+    {
+        return $this->hasMany('App\Model\Point');
+    }
 }

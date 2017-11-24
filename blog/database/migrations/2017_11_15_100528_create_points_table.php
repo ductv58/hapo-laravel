@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateStudentPointsTable extends Migration
+class CreatePointsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,10 @@ class CreateStudentPointsTable extends Migration
      */
     public function up()
     {
-        Schema::create('student_points', function (Blueprint $table) {
+        Schema::create('points', function (Blueprint $table) {
             $table->tinyInteger('student_id');
-            $table->tinyInteger('class_id');
+            $table->tinyInteger('course_id');
+            $table->tinyInteger('point');
             $table->timestamps();
         });
     }
@@ -27,6 +28,6 @@ class CreateStudentPointsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('student_points');
+        Schema::dropIfExists('points');
     }
 }

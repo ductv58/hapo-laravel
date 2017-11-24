@@ -14,8 +14,6 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::resource('students','StudentsController');
-Route::resource('teachers','TeachersController');
 
 Auth::routes();
 
@@ -28,4 +26,6 @@ Route::group(['prefix' => 'admin'], function (){
     Route::get('index', 'AdminController@index')->name('admin.index');
     Route::resource('students','StudentsController')->middleware('admin');
     Route::resource('teachers','TeachersController')->middleware('admin');
+    Route::resource('course','CourseController')->middleware('admin');
+    Route::resource('subject','SubjectController')->middleware('admin');
 });

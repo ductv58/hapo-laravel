@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Model\Class;
 use Illuminate\Http\Request;
+use App\Http\requests\SubjectRequest;
+use App\Model\Subject;
 
-class ClassController extends Controller
+class SubjectController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +15,8 @@ class ClassController extends Controller
      */
     public function index()
     {
-        //
+        $data = Subject::select('id','name')->orderBy('id','DESC')->get();
+        return view('subject.list',compact('data'));
     }
 
     /**
@@ -24,7 +26,7 @@ class ClassController extends Controller
      */
     public function create()
     {
-        //
+        return view('subject.add');
     }
 
     /**
@@ -33,18 +35,21 @@ class ClassController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(SubjectRequest $request)
     {
-        //
+        $subject = new Subject();
+        $subject->name = $request->name;
+        $subject->save();
+        return redirect()->route('subject.index');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Class  $class
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Class $class)
+    public function show($id)
     {
         //
     }
@@ -52,34 +57,40 @@ class ClassController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Class  $class
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Class $class)
+    public function edit($id)
     {
-        //
+        $data = Subject::findOrFail($id);
+        return view('subject.edit',compact('data'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Class  $class
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Class $class)
+    public function update(SubjectRequest $request, $id)
     {
-        //
+        $subject = Subject::findOrFail($id);
+        $subject->name = $request->name;
+        $subject->save();
+        return redirect()->route('subject.index');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Class  $class
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Class $class)
+    public function destroy($id)
     {
-        //
+        $subject = Subject::findOrFail($id);
+        $subject->delete();
+        return redirect()->route('subject.index');
     }
 }

@@ -11,4 +11,9 @@ class Teacher extends Model
         'id', 'name', 'teacher_code', 'birthday', 'email', 'phone', 'address','gender', 'password',
     ];
     protected $hidden = ['password', 'remember_token'];
+
+    public function courses()
+    {
+        return $this->hasMany('App\Model\Course');
+    }
 }

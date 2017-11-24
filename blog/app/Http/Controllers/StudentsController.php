@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\requests\StudentsRequest;
+use App\Http\requests\StudentRequest;
 use App\Model\Student;
 
 class StudentsController extends Controller
@@ -35,7 +35,7 @@ class StudentsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StudentsRequest $request)
+    public function store(StudentRequest $request)
     {
         $student = new Student();
         $student->name = $request->name;
@@ -82,18 +82,18 @@ class StudentsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(StudentRequest $request, $id)
     {
         $student = Student::find($id);
-        $student->name = $request->txtName;
-        $student->student_code = $request->txtStudentCode;
-        $student->school_year = $request->txtSchoolYear;
-        $student->class = $request->txtClass;
-        $student->birthday = $request->txtBirthday;
-        $student->email = $request->txtEmail;
-        $student->phone = $request->txtPhone;
-        $student->address = $request->txtAddress;
-        $student->gender = $request->txtSex;
+        $student->name = $request->name;
+        $student->student_code = $request->studentCode;
+        $student->school_year = $request->schoolYear;
+        $student->birthday = $request->birthday;
+        $student->email = $request->email;
+        $student->phone = $request->phone;
+        $student->password = $request->password;
+        $student->address = $request->address;
+        $student->gender = $request->sex;
         $student->save();
         return redirect()->route('students.index');
     }

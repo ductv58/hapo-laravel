@@ -69,7 +69,8 @@
 		  	<a href="#" class="list-group-item disabled">Dashboard</a>
 		  	<a href="{{ route('students.index') }}" class="list-group-item">Student</a>
 		  	<a href="{{ route('teachers.index') }}" class="list-group-item">Teacher</a>
-		  	<a href="#" class="list-group-item">Class</a>
+		  	<a href="{{ route('course.index') }}" class="list-group-item">Course</a>
+            <a href="{{ route('subject.index') }}" class="list-group-item">Subject</a>
 		</div>
 	</div>
 	<div class="col-md-10">
