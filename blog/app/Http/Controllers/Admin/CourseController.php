@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use App\Http\requests\CourseRequest;
 use App\Model\Course;
 use App\Model\Teacher;
@@ -84,7 +85,7 @@ class CourseController extends Controller
      * @param  \App\Class  $class
      * @return \Illuminate\Http\Response
      */
-    public function update(ClassRequest $request, $id)
+    public function update(CourseRequest $request, $id)
     {
         $course = Course::findOrFail($id);
         $course->subject_id = $request->subject;

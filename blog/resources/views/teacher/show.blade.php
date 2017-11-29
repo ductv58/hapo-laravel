@@ -9,8 +9,12 @@
 				<td>{!! $data["name"] !!}</td>
 			</tr>
 			<tr>
-				<td>Student code</td>
+				<td>teacher code</td>
 				<td>{!! $data["teacher_code"] !!}</td>
+			</tr>
+			<tr>
+				<td>password</td>
+				<td>{!! $data["password"] !!}</td>
 			</tr>
 			<tr>
 				<td>birthday</td>
@@ -30,7 +34,7 @@
 			</tr>
 			<tr>
 				<td>sex</td>
-				<td>{!! $data["sex"] !!}</td>
+				<td>{!! $data["gender"] !!}</td>
 			</tr>
 		</table>
 	</div>

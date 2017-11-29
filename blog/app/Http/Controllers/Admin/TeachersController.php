@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use App\Model\Teacher;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use App\Http\Requests\TeacherRequest;
 
 class TeachersController extends Controller
@@ -43,7 +44,7 @@ class TeachersController extends Controller
         $teacher->birthday = $request->birthday;
         $teacher->email = $request->email;
         $teacher->phone = $request->phone;
-        $teacher->password = $request->password;
+        $teacher->password = bcrypt($request->password);
         $teacher->address = $request->address;
         $teacher->gender = $request->sex;
         $teacher->save();
@@ -88,7 +89,7 @@ class TeachersController extends Controller
         $teacher->teacher_code = $request->teacherCode;
         $teacher->birthday = $request->birthday;
         $teacher->email = $request->email;
-        $teacher->password = $request->password;
+        $teacher->password = bcrypt($request->password);
         $teacher->phone = $request->phone;
         $teacher->address = $request->address;
         $teacher->gender = $request->sex;

@@ -3,10 +3,11 @@
 namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class Teacher extends Model
+class Teacher extends Authenticatable
 {
-    protected $table = 'teachers';
+	protected $guard = "teacher";
     protected $fillable = [
         'id', 'name', 'teacher_code', 'birthday', 'email', 'phone', 'address','gender', 'password',
     ];

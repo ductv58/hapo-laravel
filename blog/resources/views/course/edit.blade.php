@@ -3,7 +3,7 @@
 <div class="panel panel-default col-md-8 col-md-offset-1" style="padding: 0;margin-top: 10%;">
 	<div class="panel-heading">edit course</div>
 	<div class="panel-body">
-		<form action="{{ route('students.update',$course['id']) }}" method="POST">
+		<form action="{{ route('course.update',$course['id']) }}" method="POST">
 		{{csrf_field()}}
 		{{ method_field('PUT') }}
 			<div class="form-group">
