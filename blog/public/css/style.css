@@ -1,0 +1,15 @@
+.navbar {
+	border-radius:0;
+}
+li {
+	list-style-type: none;
+}
+
+footer {
+	background-color: black;
+
+}
+.btn-add {
+	margin-top: 10%;
+	margin-left: 70%;
+}

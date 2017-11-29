@@ -1,12 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
-use App\Http\requests\StudentsRequest;
-use App\Student;
+use App\Http\requests\SubjectRequest;
+use App\Model\Subject;
+use App\Http\Controllers\Controller;
 
-class StudentsController extends Controller
+class SubjectController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +16,8 @@ class StudentsController extends Controller
      */
     public function index()
     {
-        $data = Student::select('id','name')->orderBy('id','DESC')->get()->toArray();
-        return view('student/list',compact('data'));
+        $data = Subject::select('id','name')->orderBy('id','DESC')->get();
+        return view('subject.list',compact('data'));
     }
 
     /**
@@ -26,7 +27,7 @@ class StudentsController extends Controller
      */
     public function create()
     {
-        return view('student/add');
+        return view('subject.add');
     }
 
     /**
@@ -35,19 +36,12 @@ class StudentsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StudentsRequest $request)
+    public function store(SubjectRequest $request)
     {
-        $student = new Student;
-        $student->name = $request->TXTname;
-        $student->school_year = $request->TXTschoolyear;
-        $student->class = $request->TXTclass;
-        $student->birthday = $request->TXTbirthday;
-        $student->email = $request->TXTemail;
-        $student->phone = $request->TXTphone;
-        $student->address = $request->TXTaddress;
-        $student->farther_name = $request->TXTfarthername;
-        $student->morther_name = $request->TXTmorthername;
-        $student->save();
+        $subject = new Subject();
+        $subject->name = $request->name;
+        $subject->save();
+        return redirect()->route('subject.index');
     }
 
     /**
@@ -69,7 +63,8 @@ class StudentsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data = Subject::findOrFail($id);
+        return view('subject.edit',compact('data'));
     }
 
     /**
@@ -79,9 +74,12 @@ class StudentsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(SubjectRequest $request, $id)
     {
-        //
+        $subject = Subject::findOrFail($id);
+        $subject->name = $request->name;
+        $subject->save();
+        return redirect()->route('subject.index');
     }
 
     /**
@@ -92,6 +90,8 @@ class StudentsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $subject = Subject::findOrFail($id);
+        $subject->delete();
+        return redirect()->route('subject.index');
     }
 }
