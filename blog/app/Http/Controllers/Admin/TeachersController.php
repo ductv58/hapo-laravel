@@ -84,7 +84,7 @@ class TeachersController extends Controller
      */
     public function update(TeacherRequest $request, $id)
     {
-        $teacher = Teacher::find($id);
+        $teacher = Teacher::findOrFail($id);
         $teacher->name = $request->name;
         $teacher->teacher_code = $request->teacherCode;
         $teacher->birthday = $request->birthday;

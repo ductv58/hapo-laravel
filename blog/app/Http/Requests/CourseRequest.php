@@ -24,12 +24,12 @@ class CourseRequest extends FormRequest
     public function rules()
     {
         return [
-            'courseCode' => 'required',
+            'course_code' => 'required',
         ];
     }
     public function messages (){
         return [
-            'courseCode.required' => 'The course_code field is required.',
+            'course_code.required' => 'The course_code field is required.',
         ];
     }
 }

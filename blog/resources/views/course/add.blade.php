@@ -57,7 +57,7 @@
 			<div class="form-group">
 				<label class="col-md-3 control-label">course code</label>
 				<div class="col-md-9">
-					<input class="form-control" type="text" placeholder="courseCode" name="courseCode">
+					<input class="form-control" type="text" placeholder="course_code" name="course_code">
 				</div>
 			</div>
 			<button type="submit" class="btn btn-default">Add</button>

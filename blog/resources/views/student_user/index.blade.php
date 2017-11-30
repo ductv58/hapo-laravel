@@ -35,12 +35,12 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Authentication Links -->
-                        @if (!Auth::guard('teacher')->check())
-                            <li><a href="{{ route('teacher.getLogin') }}">Login</a></li>
+                        @if (!Auth::guard('student')->check())
+                            <li><a href="{{ route('student.getLogin') }}">Login</a></li>
                         @else
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">
-                                    {{Auth::guard('teacher')->user()->name}} <span class="caret"></span>
+                                    {{Auth::guard('student')->user()->name}} <span class="caret"></span>
                                 </a>
 
                                 <ul class="dropdown-menu">
@@ -67,8 +67,8 @@
 	<div class="col-md-2" style="height: 400px;">
 		<div class="list-group">
 		  	<a href="#" class="list-group-item disabled">Dashboard</a>
-		  	<a href="{{ route('teacher.course.getRegister') }}" class="list-group-item">regiter course</a>
-            <a href="{{ route('teacher.course.getList') }}" class="list-group-item">course</a>
+		  	<a href="#" class="list-group-item">regiter course</a>
+            <a href="#" class="list-group-item">course</a>
 		</div>
 	</div>
 	<div class="col-md-10">

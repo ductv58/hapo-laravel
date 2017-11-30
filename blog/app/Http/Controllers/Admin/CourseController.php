@@ -48,7 +48,7 @@ class CourseController extends Controller
         $course->max_size = $request->maxSize;
         $course->present = $request->present;
         $course->semester = $request->semester;
-        $course->course_code = $request->courseCode;
+        $course->course_code = $request->course_code;
         $course->save();
         return redirect()->route('course.index');
     }
@@ -61,7 +61,7 @@ class CourseController extends Controller
      */
     public function show($id)
     {
-        $courses = Course::with(['teacher','subject'])->get();
+        $courses = Course::where('id',$id)->with(['teacher','subject'])->get();
         return view('course.show',compact('courses'));
     }
 
@@ -75,7 +75,8 @@ class CourseController extends Controller
     {
         $subject = Subject::all();
         $course = Course::findOrFail($id);
-        return view('course.edit',['course'=>$course,'subject'=>$subject]);
+        $data = ["course"=>$course,"subject"=>$subject ];
+        return view('course.edit',$data);
     }
 
     /**
@@ -93,7 +94,7 @@ class CourseController extends Controller
         $course->max_size = $request->maxSize;
         $course->present = $request->present;
         $course->semester = $request->semester;
-        $course->course_code = $request->courseCode;
+        $course->course_code = $request->course_code;
         $course->save();
         return redirect()->route('course.index');
     }

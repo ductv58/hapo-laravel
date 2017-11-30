@@ -74,7 +74,7 @@
                 <div class="links">
                     <a href="{{ route('admin.index') }}">ADMIN</a>
                     <a href="{{ route('teacher.index') }}">TEACHER</a>
-                    <a href="https://laravel-news.com">News</a>
+                    <a href="{{ route('student.index') }}">STUDENT</a>
                     <a href="https://forge.laravel.com">Forge</a>
                     <a href="https://github.com/laravel/laravel">GitHub</a>
                 </div>

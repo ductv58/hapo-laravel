@@ -45,7 +45,7 @@ class StudentsController extends Controller
         $student->birthday = $request->birthday;
         $student->email = $request->email;
         $student->phone = $request->phone;
-        $student->password = $request->password;
+        $student->password = bcrypt($request->password);
         $student->address = $request->address;
         $student->gender = $request->sex;
         $student->save();
@@ -92,7 +92,7 @@ class StudentsController extends Controller
         $student->birthday = $request->birthday;
         $student->email = $request->email;
         $student->phone = $request->phone;
-        $student->password = $request->password;
+        $student->password = bcrypt($request->password);
         $student->address = $request->address;
         $student->gender = $request->sex;
         $student->save();
