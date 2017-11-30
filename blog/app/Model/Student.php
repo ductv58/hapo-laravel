@@ -1,0 +1,22 @@
+<?php
+
+namespace App\Model;
+
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+
+class Student extends Authenticatable
+{
+	protected $guard = "student";
+    protected $fillable = [
+        'id', 'name', 'student_code', 'birthday', 'school_year', 'email', 'phone', 'address','gender', 'password',
+    ];
+    protected $hidden = [
+        'password', 'remember_token',
+    ];
+
+    public function points()
+    {
+        return $this->hasMany('App\Model\Point');
+    }
+}
