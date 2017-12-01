@@ -19,7 +19,6 @@ class CreateCoursesTable extends Migration
             $table->tinyInteger('subject_id');
             $table->tinyInteger('credits');
             $table->tinyInteger('max_size');
-            $table->tinyInteger('present');
             $table->string('semester');
             $table->string('course_code',50)->unique();
             $table->timestamps();

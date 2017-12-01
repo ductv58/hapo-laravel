@@ -46,7 +46,6 @@ class CourseController extends Controller
         $course->subject_id = $request->subject;
         $course->credits = $request->credits;
         $course->max_size = $request->maxSize;
-        $course->present = $request->present;
         $course->semester = $request->semester;
         $course->course_code = $request->course_code;
         $course->save();
@@ -92,7 +91,6 @@ class CourseController extends Controller
         $course->subject_id = $request->subject;
         $course->credits = $request->credits;
         $course->max_size = $request->maxSize;
-        $course->present = $request->present;
         $course->semester = $request->semester;
         $course->course_code = $request->course_code;
         $course->save();

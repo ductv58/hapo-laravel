@@ -29,12 +29,6 @@
 				</div>
 			</div>
 			<div class="form-group">
-				<label class="col-md-3 control-label">present</label>
-				<div class="col-md-9">
-					<input class="form-control" type="text" placeholder="present" value="{!! $course['present'] !!}" name="present">
-				</div>
-			</div>
-			<div class="form-group">
 				<label class="col-md-3 control-label">semester</label>
 				<div class="col-md-9">
 					<input class="form-control" type="text" value="{!! $course['semester'] !!}" name="semester">

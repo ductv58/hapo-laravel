@@ -15,8 +15,8 @@ class Student extends Authenticatable
         'password', 'remember_token',
     ];
 
-    public function points()
+    public function courses()
     {
-        return $this->hasMany('App\Model\Point');
+        return $this->belongsToMany(Course::class,'points')->withPivot('point');
     }
 }

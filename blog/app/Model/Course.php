@@ -8,12 +8,12 @@ class Course extends Model
 {
 	protected $table = 'courses';
     protected $fillable = [
-        'id', 'teacher_id', 'subject_id', 'credits', 'max_size', 'present', 'semester', 'course_code',
+        'id', 'teacher_id', 'subject_id', 'credits', 'max_size', 'semester', 'course_code',
     ];
 
-    public function points()
+    public function students()
     {
-        return $this->hasMany('App\Model\Point');
+        return $this->belongsToMany(Student::class,'points')->withPivot('point');
     }
 
     public function teacher()

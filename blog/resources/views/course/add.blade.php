@@ -43,12 +43,6 @@
 				</div>
 			</div>
 			<div class="form-group">
-				<label class="col-md-3 control-label">present</label>
-				<div class="col-md-9">
-					<input class="form-control" type="text" placeholder="present" name="present">
-				</div>
-			</div>
-			<div class="form-group">
 				<label class="col-md-3 control-label">semester</label>
 				<div class="col-md-9">
 					<input class="form-control" type="text" placeholder="semester" name="semester">

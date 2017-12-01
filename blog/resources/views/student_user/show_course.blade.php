@@ -1,7 +1,7 @@
-@extends('teacher_user.index')
+@extends('student_user.index')
 @section('content')
 <div class="panel panel-default col-md-8 col-md-offset-1" style="padding: 0;margin-top: 10%;">
-	<div class="panel-heading">show course</div>
+	<div class="panel-heading">show student</div>
 	<div class="panel-body">
 		<table class="table table-bordered">
 			<tr>
@@ -44,31 +44,6 @@
 				<td>{{ $course->semester }}</td>
 				@endforeach
 			</tr>
-		</table>
-	</div>
-
-	<div class="panel-body">
-		<table class="table table-striped table-bordered table-hover" id="dataTables-example">
-		    <thead>
-		        <tr align="center">
-		            <th>ID</th>
-		            <th>Name</th>
-		            <th>student code</th>
-		            <th>point</th>
-		        </tr>
-		    </thead>
-		   <tbody>
-		        <?php $stt = 0 ?>
-		        @foreach ($students as $student)
-		        <?php $stt = $stt + 1 ?>
-		        <tr class="odd gradeX" align="center">
-		            <td>{!! $stt !!}</td>
-		            <td>{!! $student->name!!}</td>
-		            <td>{!! $student->student_code !!}</td>
-		            <td>{!! $student->pivot->point!!}</td>
-		        </tr>
-		        @endforeach
-		    </tbody>
 		</table>
 	</div>
 </div>

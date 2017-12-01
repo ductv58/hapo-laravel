@@ -39,12 +39,6 @@
 				@endforeach
 			</tr>
 			<tr>
-				<td>present</td>
-				@foreach ($courses as $course)
-				<td>{{ $course->present }}</td>
-				@endforeach
-			</tr>
-			<tr>
 				<td>semester</td>
 				@foreach ($courses as $course)
 				<td>{{ $course->semester }}</td>

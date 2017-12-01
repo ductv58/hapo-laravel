@@ -16,7 +16,7 @@ class CreatePointsTable extends Migration
         Schema::create('points', function (Blueprint $table) {
             $table->tinyInteger('student_id');
             $table->tinyInteger('course_id');
-            $table->tinyInteger('point');
+            $table->tinyInteger('point')->nullable();
             $table->timestamps();
         });
     }

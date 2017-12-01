@@ -47,4 +47,9 @@ Route::group(['prefix'=>'student','namespace' => 'Student'], function (){
     Route::post('login', 'StudentController@postLogin')->name('student.postLogin');
     Route::get('logout', 'StudentController@logout')->name('student.logout');
     Route::get('index', 'StudentController@index')->name('student.index');
+    Route::get('showCourse/{id}', 'CourseController@show')->name('student.course.show')->middleware('student');
+    Route::get('registerCourse', 'CourseController@getRegister')->name('student.course.getRegister')->middleware('student');
+    Route::post('registerCourse', 'CourseController@postRegister')->name('student.course.postRegister')->middleware('student');
+    Route::get('listCourse', 'CourseController@getList')->name('student.course.getList')->middleware('student');
+    Route::delete('delete/{id}', 'CourseController@delete')->name('student.course.delete')->middleware('student');
 });

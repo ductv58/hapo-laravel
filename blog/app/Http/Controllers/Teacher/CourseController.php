@@ -8,13 +8,17 @@ use Auth;
 use App\Model\Course;
 use App\Model\Teacher;
 use App\Model\Subject;
+use App\Model\Student;
 
 class CourseController extends Controller
 {
 	public function show ($id) 
 	{
 		$courses = Course::where('id',$id)->with(['teacher','subject'])->get();
-        return view('teacher_user.show_course',compact('courses'));
+        $course_students = course::findOrFail($id);
+        $students = $course_students->students;
+
+        return view('teacher_user.show_course',['courses' => $courses, 'students' => $students]);
 	}
 
     public function getRegister ()
