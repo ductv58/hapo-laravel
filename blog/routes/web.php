@@ -15,3 +15,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::resource('students','StudentsController');
+Route::resource('teachers','TeachersController');
