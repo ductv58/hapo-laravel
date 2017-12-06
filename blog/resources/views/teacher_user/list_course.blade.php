@@ -10,6 +10,7 @@
 		            <th>Name</th>
 		            <th>course code</th>
 		            <th>show</th>
+		            <th>Add Point</th>
 		            <th>Delete</th>
 		        </tr>
 		    </thead>
@@ -22,6 +23,7 @@
 		            <td>{!! $item->subject->name !!}</td>
 		            <td>{!! $item["course_code"] !!}</td>
 		            <td><a href="{{ route('teacher.course.show',$item->id) }}">show</a></td>
+		            <td><a href="{{ route('teacher.course.getAddPoint',$item->id) }}">Add</a></td>
 		            <td>
 		            	<form action="{{ route('teacher.course.delete',$item->id) }}" method="POST" accept-charset="utf-8">
 		            		{{csrf_field()}}

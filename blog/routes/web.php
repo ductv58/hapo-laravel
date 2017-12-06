@@ -40,6 +40,8 @@ Route::group(['prefix'=>'teacher','namespace' => 'Teacher'], function (){
     Route::post('registerCourse', 'CourseController@postRegister')->name('teacher.course.postRegister')->middleware('teacher');
     Route::get('listCourse', 'CourseController@getList')->name('teacher.course.getList')->middleware('teacher');
     Route::post('delete/{id}', 'CourseController@delete')->name('teacher.course.delete')->middleware('teacher');
+    Route::get('addPoint/{id}', 'CourseController@getAddPoint')->name('teacher.course.getAddPoint')->middleware('teacher');
+    Route::post('addPoint/{id}', 'CourseController@postAddPoint')->name('teacher.course.postAddPoint')->middleware('teacher');
 });
 
 Route::group(['prefix'=>'student','namespace' => 'Student'], function (){

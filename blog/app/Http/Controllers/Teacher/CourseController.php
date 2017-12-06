@@ -50,4 +50,25 @@ class CourseController extends Controller
     	$course->save();
         return redirect()->route('teacher.course.getList');
     }
+
+    public function getAddPoint ($id)
+    {
+        
+        $courses = Course::where('id',$id)->with(['teacher','subject'])->get();
+        $course_students = course::findOrFail($id);
+        $students = $course_students->students;
+        return view('teacher_user.add_point',['courses' => $courses, 'students' => $students,'id' => $id]);
+    }
+
+    public function postAddPoint (Request $request,$id)
+    {
+        $course = Course::findOrFail($id);
+        $request_keys = array_keys($request->toArray());
+        for($index=1;$index<count($request->toArray());$index++){
+            $student = Student::where('student_code',$request_keys[$index])->first();
+            $course->students()->detach($student->id);
+            $course->students()->attach($student->id, ['point' => $request->{$student->student_code}]);
+        }
+        return redirect()->route('teacher.course.getList');
+    }
 }
