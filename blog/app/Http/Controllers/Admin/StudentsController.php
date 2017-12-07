@@ -3,9 +3,11 @@
 namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail; 
 use App\Http\requests\StudentRequest;
 use App\Http\Controllers\Controller;
 use App\Model\Student;
+use App\Mail\student_signup;
 
 class StudentsController extends Controller
 {
@@ -49,6 +51,7 @@ class StudentsController extends Controller
         $student->address = $request->address;
         $student->gender = $request->sex;
         $student->save();
+        Mail::to($student)->send(new student_signup($student));
         return redirect()->route('students.index');
     }
 
