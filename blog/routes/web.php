@@ -35,13 +35,13 @@ Route::group(['prefix'=>'teacher','namespace' => 'Teacher'], function (){
     Route::post('login', 'TeacherController@postLogin')->name('teacher.postLogin');
     Route::get('logout', 'TeacherController@logout')->name('teacher.logout');
     Route::get('index', 'TeacherController@index')->name('teacher.index');
-    Route::get('showCourse/{id}', 'CourseController@show')->name('teacher.course.show')->middleware('teacher');
-    Route::get('registerCourse', 'CourseController@getRegister')->name('teacher.course.getRegister')->middleware('teacher');
-    Route::post('registerCourse', 'CourseController@postRegister')->name('teacher.course.postRegister')->middleware('teacher');
-    Route::get('listCourse', 'CourseController@getList')->name('teacher.course.getList')->middleware('teacher');
+    Route::get('show_course/{id}', 'CourseController@show')->name('teacher.course.show')->middleware('teacher');
+    Route::get('register_course', 'CourseController@getRegister')->name('teacher.course.getRegister')->middleware('teacher');
+    Route::post('register_course', 'CourseController@postRegister')->name('teacher.course.postRegister')->middleware('teacher');
+    Route::get('list_course', 'CourseController@getList')->name('teacher.course.getList')->middleware('teacher');
     Route::post('delete/{id}', 'CourseController@delete')->name('teacher.course.delete')->middleware('teacher');
-    Route::get('addPoint/{id}', 'CourseController@getAddPoint')->name('teacher.course.getAddPoint')->middleware('teacher');
-    Route::post('addPoint/{id}', 'CourseController@postAddPoint')->name('teacher.course.postAddPoint')->middleware('teacher');
+    Route::get('add_point/{id}', 'CourseController@getAddPoint')->name('teacher.course.getAddPoint')->middleware('teacher');
+    Route::post('add_point/{id}', 'CourseController@postAddPoint')->name('teacher.course.postAddPoint')->middleware('teacher');
 });
 
 Route::group(['prefix'=>'student','namespace' => 'Student'], function (){
@@ -49,9 +49,9 @@ Route::group(['prefix'=>'student','namespace' => 'Student'], function (){
     Route::post('login', 'StudentController@postLogin')->name('student.postLogin');
     Route::get('logout', 'StudentController@logout')->name('student.logout');
     Route::get('index', 'StudentController@index')->name('student.index');
-    Route::get('showCourse/{id}', 'CourseController@show')->name('student.course.show')->middleware('student');
-    Route::get('registerCourse', 'CourseController@getRegister')->name('student.course.getRegister')->middleware('student');
-    Route::post('registerCourse', 'CourseController@postRegister')->name('student.course.postRegister')->middleware('student');
-    Route::get('listCourse', 'CourseController@getList')->name('student.course.getList')->middleware('student');
+    Route::get('show_course/{id}', 'CourseController@show')->name('student.course.show')->middleware('student');
+    Route::get('register_course', 'CourseController@getRegister')->name('student.course.getRegister')->middleware('student');
+    Route::post('register_course', 'CourseController@postRegister')->name('student.course.postRegister')->middleware('student');
+    Route::get('list_course', 'CourseController@getList')->name('student.course.getList')->middleware('student');
     Route::delete('delete/{id}', 'CourseController@delete')->name('student.course.delete')->middleware('student');
 });

@@ -8,6 +8,7 @@ use App\Http\requests\CourseRequest;
 use App\Model\Course;
 use App\Model\Teacher;
 use App\Model\Subject;
+use App\Model\Student;
 
 class CourseController extends Controller
 {
@@ -61,7 +62,9 @@ class CourseController extends Controller
     public function show($id)
     {
         $courses = Course::where('id',$id)->with(['teacher','subject'])->get();
-        return view('course.show',compact('courses'));
+        $course_students = course::findOrFail($id);
+        $students = $course_students->students;
+        return view('course.show',['courses' => $courses, 'students' => $students]);
     }
 
     /**

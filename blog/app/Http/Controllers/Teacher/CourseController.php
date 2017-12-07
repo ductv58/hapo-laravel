@@ -17,7 +17,6 @@ class CourseController extends Controller
 		$courses = Course::where('id',$id)->with(['teacher','subject'])->get();
         $course_students = course::findOrFail($id);
         $students = $course_students->students;
-
         return view('teacher_user.show_course',['courses' => $courses, 'students' => $students]);
 	}
 
