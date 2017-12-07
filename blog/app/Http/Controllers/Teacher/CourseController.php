@@ -22,7 +22,7 @@ class CourseController extends Controller
 
     public function getRegister ()
     {
-    	$data = Course::where('teacher_id',NULL)->with('teacher','subject')->orderBy('id','DESC')->get();
+    	$data = Course::where('teacher_id',NULL)->with('teacher','subject')->orderBy('course_code','DESC')->get();
         return view('teacher_user.add_course',compact('data'));
     }
 
@@ -38,7 +38,7 @@ class CourseController extends Controller
     public function getList () 
     {
     	$id = Auth::guard('teacher')->user()->id;
-    	$data = Course::where('teacher_id',$id)->with('teacher','subject')->orderBy('id','DESC')->get();
+    	$data = Course::where('teacher_id',$id)->with('teacher','subject')->orderBy('course_code','DESC')->get();
         return view('teacher_user.list_course',compact('data'));
     }
 

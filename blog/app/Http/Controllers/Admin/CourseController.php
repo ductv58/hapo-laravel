@@ -19,7 +19,7 @@ class CourseController extends Controller
      */
     public function index()
     {
-        $data = Course::with('teacher','subject')->orderBy('id','DESC')->get();
+        $data = Course::with('teacher','subject')->orderBy('course_code','DESC')->get();
         return view('course.list',compact('data'));
     }
 

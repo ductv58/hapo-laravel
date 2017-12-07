@@ -14,7 +14,7 @@ class CourseController extends Controller
 {
     public function getRegister () 
     {
-    	$data = Course::with('teacher','subject')->orderBy('id','DESC')->get();
+    	$data = Course::with('teacher','subject')->orderBy('course_code','DESC')->get();
         return view('student_user.add_course',compact('data'));
     }
 

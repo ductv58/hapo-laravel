@@ -16,7 +16,7 @@ class SubjectController extends Controller
      */
     public function index()
     {
-        $data = Subject::select('id','name')->orderBy('id','DESC')->get();
+        $data = Subject::select('id','name')->orderBy('name','DESC')->get();
         return view('subject.list',compact('data'));
     }
 
