@@ -9,16 +9,12 @@
 				<td>{!! $data["name"] !!}</td>
 			</tr>
 			<tr>
-				<td>Student code</td>
-				<td>{!! $data["student_code"] !!}</td>
+				<td>teacher code</td>
+				<td>{!! $data["teacher_code"] !!}</td>
 			</tr>
 			<tr>
 				<td>password</td>
 				<td>{!! $data["password"] !!}</td>
-			</tr>
-			<tr>
-				<td>school year</td>
-				<td>{!! $data["school_year"] !!}</td>
 			</tr>
 			<tr>
 				<td>birthday</td>
