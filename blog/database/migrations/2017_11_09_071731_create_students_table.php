@@ -24,6 +24,8 @@ class CreateStudentsTable extends Migration
             $table->integer('phone');
             $table->string('address');
             $table->tinyInteger('gender');
+            $table->string('email_token')->nullable();
+            $table->boolean('activate')->default(false);
             $table->rememberToken();
             $table->timestamps();
         });
