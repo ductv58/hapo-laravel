@@ -121,6 +121,11 @@ return [
             'table' => 'password_resets',
             'expire' => 60,
         ],
+        'students' => [
+            'provider' => 'students',
+            'table' => 'student_password_resets',
+            'expire' => 60,
+        ],
     ],
 
 ];

@@ -56,4 +56,6 @@ Route::group(['prefix'=>'student','namespace' => 'Student'], function (){
     Route::get('list_course', 'CourseController@getList')->name('student.course.getList')->middleware('student');
     Route::delete('delete/{id}', 'CourseController@delete')->name('student.course.delete')->middleware('student');
     Route::get('activate/{token}', 'StudentController@activate')->name('student.activate');
+    Route::get('reset_pass', 'StudentResetPasswordController@getReset')->name('student.getReset')->middleware('student');
+    Route::post('reset_pass', 'StudentResetPasswordController@postReset')->name('student.postReset')->middleware('student');
 });

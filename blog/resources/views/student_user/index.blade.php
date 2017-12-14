@@ -69,6 +69,7 @@
 		  	<a href="#" class="list-group-item disabled">Dashboard</a>
 		  	<a href="{{ route('student.course.getRegister') }}" class="list-group-item">regiter course</a>
             <a href="{{ route('student.course.getList') }}" class="list-group-item">course</a>
+            <a href="{{ route('student.getReset') }}" class="list-group-item">reset password</a>
 		</div>
 	</div>
 	<div class="col-md-10">
