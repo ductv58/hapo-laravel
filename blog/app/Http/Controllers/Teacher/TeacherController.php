@@ -39,13 +39,13 @@ class TeacherController extends Controller
      public function logout()
     {
         Auth::guard('teacher')->logout();
-        return redirect()->route('teacher.getLogin');
+        return redirect()->route('teacher.get_login');
     }
 
     public function activate ($token) {
         $teacher = Teacher::where('email_token',$token)->first();
         $teacher->activate = 1;
         $teacher->save();
-        return redirect()->route('teacher.getLogin');
+        return redirect()->route('teacher.get_login');
     }
 }

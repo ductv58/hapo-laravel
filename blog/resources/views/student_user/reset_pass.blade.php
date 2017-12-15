@@ -12,7 +12,7 @@
 		        </ul>
 		    </div>
 		@endif
-		<form action="{{ route('student.postReset') }}" method="POST">
+		<form action="{{ route('student.post_reset') }}" method="POST">
 		{{ csrf_field() }}
 			<div class="form-group">
 				<label class="col-md-3 control-label">old password</label>

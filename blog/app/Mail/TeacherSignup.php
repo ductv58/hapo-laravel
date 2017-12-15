@@ -8,7 +8,7 @@ use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use App\Model\Teacher;
 
-class teacher_signup extends Mailable
+class TeacherSignup extends Mailable
 {
     use Queueable, SerializesModels;
 

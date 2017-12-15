@@ -18,7 +18,7 @@ class StudentAuthenticate
     public function handle($request, Closure $next)
     {
         if (!Auth::guard('student')->check()) {
-            return redirect()->route('student.getLogin');
+            return redirect()->route('student.get_login');
         }
         return $next($request);
     }

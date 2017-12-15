@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Mail;
 use App\Http\requests\StudentRequest;
 use App\Http\Controllers\Controller;
 use App\Model\Student;
-use App\Mail\student_signup;
+use App\Mail\StudentSignup;
 
 class StudentsController extends Controller
 {
@@ -52,7 +52,7 @@ class StudentsController extends Controller
         $student->address = $request->address;
         $student->gender = $request->sex;
         $student->save();
-        Mail::to($student)->send(new student_signup($student));
+        Mail::to($student)->send(new StudentSignup($student));
         return redirect()->route('students.index');
     }
 

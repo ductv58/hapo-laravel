@@ -36,7 +36,7 @@
 		            <td>{!! $item->students->count() !!}</td>
 		            <td><a href="{{ route('student.course.show',$item->id) }}">show</a></td>
 		            <td>
-		            	<form action="{{ route('student.course.postRegister')}}" method="POST" accept-charset="utf-8">
+		            	<form action="{{ route('student.course.post_register')}}" method="POST" accept-charset="utf-8">
 		            		{{csrf_field()}}
 		            		<input type="hidden" name="course" value="{{ $item->id }}">
 		            		<button type="submit" style="border: none;background:none;color: #337ab7;">Register</button> 

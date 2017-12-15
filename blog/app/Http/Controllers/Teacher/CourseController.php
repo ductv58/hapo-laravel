@@ -32,7 +32,7 @@ class CourseController extends Controller
     	$course = Course::findOrFail($request->course);
     	$course->teacher_id = $id;
     	$course->save();
-        return redirect()->route('teacher.course.getList');
+        return redirect()->route('teacher.course.get_list');
     }
 
     public function getList () 
@@ -47,7 +47,7 @@ class CourseController extends Controller
     	$course = Course::findOrFail($id);
     	$course->teacher_id = null;
     	$course->save();
-        return redirect()->route('teacher.course.getList');
+        return redirect()->route('teacher.course.get_list');
     }
 
     public function getAddPoint ($id)
@@ -68,6 +68,6 @@ class CourseController extends Controller
             $course->students()->detach($student->id);
             $course->students()->attach($student->id, ['point' => $request->{$student->student_code}]);
         }
-        return redirect()->route('teacher.course.getList');
+        return redirect()->route('teacher.course.get_list');
     }
 }

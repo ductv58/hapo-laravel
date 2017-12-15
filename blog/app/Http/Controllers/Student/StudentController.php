@@ -40,14 +40,14 @@ class StudentController extends Controller
     {
         Auth::guard('student')->logout();
         $request->session()->invalidate();
-        return redirect()->route('student.getLogin');
+        return redirect()->route('student.get_login');
     }
 
     public function activate ($token) {
         $student = Student::where('email_token',$token)->first();
         $student->activate = 1;
         $student->save();
-        return redirect()->route('student.getLogin');
+        return redirect()->route('student.get_login');
     }
 }
 

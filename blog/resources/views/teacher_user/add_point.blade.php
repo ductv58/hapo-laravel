@@ -3,7 +3,7 @@
 <div class="panel panel-default col-md-8 col-md-offset-1" style="padding: 0;margin-top: 10%;">
 	<div class="panel-heading">Add point</div>
 	<div class="panel-body">
-		<form action="{{ route('teacher.course.postAddPoint',$id) }}" method="POST" accept-charset="utf-8">
+		<form action="{{ route('teacher.course.post_add_point',$id) }}" method="POST" accept-charset="utf-8">
 			{{csrf_field()}}
 			<table class="table table-striped table-bordered table-hover" id="dataTables-example">
 			    <thead>

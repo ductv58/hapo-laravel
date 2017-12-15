@@ -16,7 +16,7 @@
                     </div>
                 @endif
                 <div class="panel-body">
-                    <form class="form-horizontal" method="POST" action="{{ route('admin.postLogin') }}">
+                    <form class="form-horizontal" method="POST" action="{{ route('admin.post_login') }}">
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
