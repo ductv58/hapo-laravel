@@ -15,7 +15,7 @@
 			<div class="form-group">
 				<label class="col-md-3 control-label">Student code</label>
 				<div class="col-md-9">
-					<input class="form-control" type="text" placeholder="student code" value="{!! $data['student_code'] !!}" name="studentCode">
+					<input class="form-control" type="text" placeholder="student code" value="{!! $data['student_code'] !!}" name="student_code">
 				</div>
 			</div>
 			<div class="form-group">

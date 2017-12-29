@@ -5,12 +5,12 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\requests\CourseRequest;
-use App\Model\Course;
-use App\Model\Teacher;
-use App\Model\Subject;
-use App\Model\Student;
+use App\Models\Course;
+use App\Models\Teacher;
+use App\Models\Subject;
+use App\Models\Student;
 
-class CourseController extends Controller
+class CoursesController extends Controller
 {
      /**
      * Display a listing of the resource.
@@ -46,11 +46,11 @@ class CourseController extends Controller
         $course = new Course();
         $course->subject_id = $request->subject;
         $course->credits = $request->credits;
-        $course->max_size = $request->maxSize;
+        $course->max_size = $request->max_size;
         $course->semester = $request->semester;
         $course->course_code = $request->course_code;
         $course->save();
-        return redirect()->route('course.index');
+        return redirect()->route('course.index')->with('success','create success!');
     }
 
     /**
@@ -62,7 +62,7 @@ class CourseController extends Controller
     public function show($id)
     {
         $courses = Course::where('id',$id)->with(['teacher','subject'])->get();
-        $course_students = course::findOrFail($id);
+        $course_students = Course::findOrFail($id);
         $students = $course_students->students;
         return view('course.show',['courses' => $courses, 'students' => $students]);
     }
@@ -93,11 +93,11 @@ class CourseController extends Controller
         $course = Course::findOrFail($id);
         $course->subject_id = $request->subject;
         $course->credits = $request->credits;
-        $course->max_size = $request->maxSize;
+        $course->max_size = $request->max_size;
         $course->semester = $request->semester;
         $course->course_code = $request->course_code;
         $course->save();
-        return redirect()->route('course.index');
+        return redirect()->route('course.index')->with('success','update success!');
     }
 
     /**
@@ -108,7 +108,7 @@ class CourseController extends Controller
      */
     public function destroy($id)
     {
-        $student = Course::find($id);
+        $student = Course::findOrFail($id);
         $student->delete();
         return redirect()->route('course.index');
     }

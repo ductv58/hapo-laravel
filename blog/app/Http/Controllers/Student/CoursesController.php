@@ -5,10 +5,10 @@ namespace App\Http\Controllers\Student;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Auth;
-use App\Model\Course;
-use App\Model\Teacher;
-use App\Model\Subject;
-use App\Model\Student;
+use App\Models\Course;
+use App\Models\Teacher;
+use App\Models\Subject;
+use App\Models\Student;
 
 class CourseController extends Controller
 {
@@ -18,7 +18,7 @@ class CourseController extends Controller
         return view('student_user.add_course',compact('data'));
     }
 
-    public function postRegister (Request $request)
+    public function postRegister (StudentAddCourseRequest $request)
     {
     	$student = Auth::guard('student')->user();
         $courses = $student->courses;

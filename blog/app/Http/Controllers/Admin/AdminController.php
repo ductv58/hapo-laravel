@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Model\Admin;
+use App\Models\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
@@ -34,7 +34,7 @@ class AdminController extends Controller
 
         if (Auth::guard('admin')->attempt(['email' => $email, 'password' => $password], $remember)) {
         	
-            return redirect()->route('admin.index');
+            return redirect()->route('admin.index')->with('success', 'Login success!');
         } 
         return redirect()->back()->withErrors(['false'=>'Username or Password is incorrect']);
     }

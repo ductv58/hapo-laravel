@@ -39,7 +39,7 @@
 			<div class="form-group">
 				<label class="col-md-3 control-label">max size</label>
 				<div class="col-md-9">
-					<input class="form-control" type="text" placeholder="maxSize" name="maxSize">
+					<input class="form-control" type="text" placeholder="max_size" name="max_size">
 				</div>
 			</div>
 			<div class="form-group">

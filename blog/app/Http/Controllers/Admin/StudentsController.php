@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail; 
 use App\Http\requests\StudentRequest;
 use App\Http\Controllers\Controller;
-use App\Model\Student;
+use App\Models\Student;
 use App\Mail\StudentSignup;
 
 class StudentsController extends Controller
@@ -40,9 +40,10 @@ class StudentsController extends Controller
      */
     public function store(StudentRequest $request)
     {
+ 
         $student = new Student();
         $student->name = $request->name;
-        $student->student_code = $request->studentCode;
+        $student->student_code = $request->student_code;
         $student->school_year = $request->schoolYear;
         $student->birthday = $request->birthday;
         $student->email = $request->email;
@@ -53,7 +54,7 @@ class StudentsController extends Controller
         $student->gender = $request->sex;
         $student->save();
         Mail::to($student)->send(new StudentSignup($student));
-        return redirect()->route('students.index');
+        return redirect()->route('students.index')->with('success','create success');
     }
 
     /**
@@ -89,9 +90,9 @@ class StudentsController extends Controller
      */
     public function update(StudentRequest $request, $id)
     {
-        $student = Student::find($id);
+        $student = Student::findOrFail($id);
         $student->name = $request->name;
-        $student->student_code = $request->studentCode;
+        $student->student_code = $request->student_code;
         $student->school_year = $request->schoolYear;
         $student->birthday = $request->birthday;
         $student->email = $request->email;
@@ -100,7 +101,7 @@ class StudentsController extends Controller
         $student->address = $request->address;
         $student->gender = $request->sex;
         $student->save();
-        return redirect()->route('students.index');
+        return redirect()->route('students.index')->with('success','update success!');
     }
 
     /**
@@ -112,7 +113,7 @@ class StudentsController extends Controller
     public function destroy($id)
     {
 
-        $student = Student::find($id);
+        $student = Student::findOrFail($id);
         $student->delete();
         return redirect()->route('students.index');
     }

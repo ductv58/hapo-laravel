@@ -9,7 +9,7 @@ use App\Http\requests\StudentResetPasswordRequest;
 use Illuminate\Support\Facades\Mail; 
 use App\Http\Controllers\Controller;
 use App\Mail\StudentForgotPass;
-use App\Model\Student;
+use App\Models\Student;
 
 class ForgotPasswordController extends Controller
 {
@@ -20,7 +20,7 @@ class ForgotPasswordController extends Controller
 
     public function postReset (StudentForgotPasswordRequest $request) 
     {
-    	$student = Student::where('email',$request->email)->first();
+    	$student = Student::where('email',$request->email)->firstOrFail();
         $student->email_token = str_random(15);
         $student->save();
         Mail::to($student)->send(new StudentForgotPass($student));
@@ -29,7 +29,7 @@ class ForgotPasswordController extends Controller
 
     public function getResetPass ($token)
     {
-    	$student = Student::where('email_token',$token)->first();
+    	$student = Student::where('email_token',$token)->firstOrFail();
     	if($student !== NULL){
     		return view('student_user.student_reset_pass_form',['student_id' => $student->id]);
     	}else {

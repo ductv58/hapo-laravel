@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Model\Teacher;
+use App\Models\Teacher;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\TeacherRequest;
@@ -42,7 +42,7 @@ class TeachersController extends Controller
     {
         $teacher = new Teacher();
         $teacher->name = $request->name;
-        $teacher->teacher_code = $request->teacherCode;
+        $teacher->teacher_code = $request->teacher_code;
         $teacher->birthday = $request->birthday;
         $teacher->email = $request->email;
         $teacher->phone = $request->phone;
@@ -90,7 +90,7 @@ class TeachersController extends Controller
     {
         $teacher = Teacher::findOrFail($id);
         $teacher->name = $request->name;
-        $teacher->teacher_code = $request->teacherCode;
+        $teacher->teacher_code = $request->teacher_code;
         $teacher->birthday = $request->birthday;
         $teacher->email = $request->email;
         $teacher->password = bcrypt($request->password);
@@ -109,7 +109,7 @@ class TeachersController extends Controller
      */
     public function destroy($id)
     {
-        $teacher = Teacher::find($id);
+        $teacher = Teacher::findOrFail($id);
         $teacher->delete();
         return redirect()->route('teachers.index');    
     }
