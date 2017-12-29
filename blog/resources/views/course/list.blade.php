@@ -1,5 +1,10 @@
 @extends('master')
 @section('content')
+@if(session()->has('success'))
+    <div class="alert alert-success">
+        <p>{{session()->get('success')}}</p>
+    </div>
+@endif
 <div class="btn-add">
 	<a href="{{ route('course.create') }}"><button type="button" class="btn btn-default">Add</button></a>
 </div>

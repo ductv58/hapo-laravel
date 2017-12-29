@@ -15,7 +15,7 @@
 			<div class="form-group">
 				<label class="col-md-3 control-label">Teacher code</label>
 				<div class="col-md-9">
-					<input class="form-control" type="text" placeholder="mssv" value="{!! $data['teacher_code'] !!}" name="teacherCode">
+					<input class="form-control" type="text" placeholder="mssv" value="{!! $data['teacher_code'] !!}" name="teacher_code">
 				</div>
 			</div>
 			<div class="form-group">

@@ -5,10 +5,10 @@ namespace App\Http\Controllers\Teacher;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Auth;
-use App\Model\Course;
-use App\Model\Teacher;
-use App\Model\Subject;
-use App\Model\Student;
+use App\Models\Course;
+use App\Models\Teacher;
+use App\Models\Subject;
+use App\Models\Student;
 
 class CourseController extends Controller
 {
@@ -26,7 +26,7 @@ class CourseController extends Controller
         return view('teacher_user.add_course',compact('data'));
     }
 
-    public function postRegister (Request $request)
+    public function postRegister (TeacherAddCourseRequest $request)
     {
     	$id = Auth::guard('teacher')->user()->id;
     	$course = Course::findOrFail($request->course);
@@ -64,7 +64,7 @@ class CourseController extends Controller
         $course = Course::findOrFail($id);
         $request_keys = array_keys($request->toArray());
         for($index=1;$index<count($request->toArray());$index++){
-            $student = Student::where('student_code',$request_keys[$index])->first();
+            $student = Student::where('student_code',$request_keys[$index])->firstOrFail();
             $course->students()->detach($student->id);
             $course->students()->attach($student->id, ['point' => $request->{$student->student_code}]);
         }

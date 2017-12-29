@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 use App\Http\requests\ResetPasswordRequest;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Facades\Auth;
-use App\Model\Student;
+use App\Models\Student;
 
 class StudentResetPasswordController extends Controller
 {

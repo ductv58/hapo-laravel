@@ -22,7 +22,7 @@
 			            <td>{!! $stt !!}</td>
 			            <td>{!! $student->name!!}</td>
 			            <td>{!! $student->student_code !!}</td>
-			           <td><input type="text" value="{!! $student->pivot->point!!}" name="{{ $student->student_code }}"></td>
+			           <td><input type="text" value="{{ $student->pivot->point}}" name="{{ $student->student_code }}"></td><!-- studetn_name[{{ $student->student_code }}] -->
 			        </tr>
 			        @endforeach
 			    </tbody>

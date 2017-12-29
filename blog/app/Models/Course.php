@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Model;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -18,11 +18,11 @@ class Course extends Model
 
     public function teacher()
     {
-        return $this->belongsTo('App\Model\Teacher','teacher_id');
+        return $this->belongsTo(Teacher::class,'teacher_id');
     }
 
     public function subject()
     {
-        return $this->belongsTo('App\Model\Subject','subject_id');
+        return $this->belongsTo(Subject::class,'subject_id');
     }
 }

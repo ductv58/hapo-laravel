@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Model;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -13,6 +13,6 @@ class Subject extends Model
 
     public function courses()
     {
-        return $this->hasMany('App\Model\Course');
+        return $this->hasMany(Course::class);
     }
 }

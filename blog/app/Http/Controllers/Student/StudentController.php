@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Auth;
-use App\Model\Student;
+use App\Models\Student;
 
 class StudentController extends Controller
 {
@@ -32,7 +32,7 @@ class StudentController extends Controller
         $password = $request->password;
         $remember = $request->get('remember');
         if (Auth::guard('student')->attempt(['email' => $email, 'password' => $password, 'activate' => 1], $remember)) {	
-            return redirect()->route('student.index');
+            return redirect()->route('student.index')->with('success','login success!');
         } 
         return redirect()->back()->withErrors(['false'=>'Username or Password is incorrect']);
     }
@@ -44,7 +44,7 @@ class StudentController extends Controller
     }
 
     public function activate ($token) {
-        $student = Student::where('email_token',$token)->first();
+        $student = Student::where('email_token',$token)->firstOrFail();
         $student->activate = 1;
         $student->save();
         return redirect()->route('student.get_login');

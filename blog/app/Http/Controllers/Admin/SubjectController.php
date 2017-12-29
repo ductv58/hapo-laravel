@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\requests\SubjectRequest;
-use App\Model\Subject;
+use App\Models\Subject;
 use App\Http\Controllers\Controller;
 
 class SubjectController extends Controller
@@ -41,7 +41,7 @@ class SubjectController extends Controller
         $subject = new Subject();
         $subject->name = $request->name;
         $subject->save();
-        return redirect()->route('subject.index');
+        return redirect()->route('subject.index')->with('success','create success!');
     }
 
     /**

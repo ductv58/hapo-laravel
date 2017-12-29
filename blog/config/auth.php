@@ -79,19 +79,19 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => App\Model\User::class,
+            'model' => App\Models\User::class,
         ],
         'admins' => [
             'driver' => 'eloquent',
-            'model' => App\Model\Admin::class,
+            'model' => App\Models\Admin::class,
         ],
         'teachers' => [
             'driver' => 'eloquent',
-            'model' => App\Model\Teacher::class,
+            'model' => App\Models\Teacher::class,
         ],
         'students' => [
             'driver' => 'eloquent',
-            'model' => App\Model\Student::class,
+            'model' => App\Models\Student::class,
         ],
 
         // 'users' => [
