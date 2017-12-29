@@ -45,13 +45,13 @@
 
                                 <ul class="dropdown-menu">
                                     <li>
-                                        <a href="{{ route('logout') }}"
+                                        <a href="{{ route('teacher.logout') }}"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                             Logout
                                         </a>
 
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        <form id="logout-form" action="{{ route('teacher.logout') }}" method="POST" style="display: none;">
                                             {{ csrf_field() }}
                                         </form>
                                     </li>
@@ -67,8 +67,8 @@
 	<div class="col-md-2" style="height: 400px;">
 		<div class="list-group">
 		  	<a href="#" class="list-group-item disabled">Dashboard</a>
-		  	<a href="{{ route('teacher.course.getRegister') }}" class="list-group-item">regiter course</a>
-            <a href="{{ route('teacher.course.getList') }}" class="list-group-item">course</a>
+		  	<a href="{{ route('teacher.course.get_register') }}" class="list-group-item">regiter course</a>
+            <a href="{{ route('teacher.course.get_list') }}" class="list-group-item">course</a>
 		</div>
 	</div>
 	<div class="col-md-10">

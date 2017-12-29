@@ -3,9 +3,11 @@
 namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail; 
 use App\Http\requests\StudentRequest;
 use App\Http\Controllers\Controller;
 use App\Model\Student;
+use App\Mail\StudentSignup;
 
 class StudentsController extends Controller
 {
@@ -45,10 +47,12 @@ class StudentsController extends Controller
         $student->birthday = $request->birthday;
         $student->email = $request->email;
         $student->phone = $request->phone;
+        $student->email_token = str_random(15);
         $student->password = bcrypt($request->password);
         $student->address = $request->address;
         $student->gender = $request->sex;
         $student->save();
+        Mail::to($student)->send(new StudentSignup($student));
         return redirect()->route('students.index');
     }
 

@@ -43,7 +43,7 @@
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Authentication Links -->
                         @if (!Auth::guard('teacher')->check())
-                            <li><a href="{{ route('teacher.getLogin') }}">Login</a></li>
+                            <li><a href="{{ route('teacher.get_login') }}">Login</a></li>
                         @else
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">
@@ -84,7 +84,7 @@
                             </div>
                         @endif
                         <div class="panel-body">
-                            <form class="form-horizontal" method="POST" action="{{ route('teacher.postLogin') }}">
+                            <form class="form-horizontal" method="POST" action="{{ route('teacher.post_login') }}">
                                 {{ csrf_field() }}
 
                                 <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">

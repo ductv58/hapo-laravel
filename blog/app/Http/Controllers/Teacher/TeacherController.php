@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Auth;
+use App\Model\Teacher;
 
 class TeacherController extends Controller
 {
@@ -13,7 +14,7 @@ class TeacherController extends Controller
     protected $redirectTo = '/home';
     public function __construct()
     {
-    	$this->middleware('teacher')->except(['getLogin', 'postLogin']);
+    	$this->middleware('teacher')->except(['getLogin', 'postLogin','activate']);
     }
     
     public function getLogin()
@@ -29,7 +30,7 @@ class TeacherController extends Controller
     {
     	$email = $request->email;
         $password = $request->password;
-        $remember = $request->has('remember_token') ? true : false;
+        $remember = $request->get('remember');
         if (Auth::guard('teacher')->attempt(['email' => $email, 'password' => $password], $remember)) {	
             return redirect()->route('teacher.index');
         } 
@@ -38,6 +39,13 @@ class TeacherController extends Controller
      public function logout()
     {
         Auth::guard('teacher')->logout();
-        return redirect()->route('teacher.getLogin');
+        return redirect()->route('teacher.get_login');
+    }
+
+    public function activate ($token) {
+        $teacher = Teacher::where('email_token',$token)->first();
+        $teacher->activate = 1;
+        $teacher->save();
+        return redirect()->route('teacher.get_login');
     }
 }

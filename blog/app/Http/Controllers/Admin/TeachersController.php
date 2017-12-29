@@ -6,6 +6,8 @@ use App\Model\Teacher;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\TeacherRequest;
+use Illuminate\Support\Facades\Mail; 
+use App\Mail\TeacherSignup;
 
 class TeachersController extends Controller
 {
@@ -44,10 +46,12 @@ class TeachersController extends Controller
         $teacher->birthday = $request->birthday;
         $teacher->email = $request->email;
         $teacher->phone = $request->phone;
+        $teacher->email_token = str_random(15);
         $teacher->password = bcrypt($request->password);
         $teacher->address = $request->address;
         $teacher->gender = $request->sex;
         $teacher->save();
+        Mail::to($teacher)->send(new TeacherSignup($teacher));
         return redirect()->route('teachers.index');
     }
 

@@ -23,6 +23,8 @@ class CreateTeachersTable extends Migration
             $table->integer('phone');
             $table->string('address');
             $table->string('teacher_code',50)->unique();
+            $table->string('email_token')->nullable();
+            $table->boolean('activate')->default(false);
             $table->rememberToken();
             $table->timestamps();
         });

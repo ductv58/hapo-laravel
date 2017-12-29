@@ -28,7 +28,7 @@ class CourseController extends Controller
             }
         }
     	$student->courses()->attach($request->course);
-    	return redirect()->route('student.course.getList');
+    	return redirect()->route('student.course.get_list');
     }
 
     public function show ($id)
@@ -49,6 +49,6 @@ class CourseController extends Controller
     	$student = Auth::guard('student')->user();
 
     	$student->courses()->detach($id);
-    	return redirect()->route('student.course.getList');
+    	return redirect()->route('student.course.get_list');
     }
 }
