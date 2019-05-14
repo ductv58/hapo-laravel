@@ -16,10 +16,10 @@ jobs:
       # for database intensive operations.
       - image: circleci/mysql:5.7-ram
         environment:
-          MYSQL_ROOT_PASSWORD: ''
-          MYSQL_DATABASE: hapojc
-          MYSQL_USER: homestead
-          MYSQL_PASSWORD: secret
+          MYSQL_DATABASE: homestead_test
+                    MYSQL_USER: homestead_test
+                    MYSQL_PASSWORD: secret
+                    MYSQL_ROOT_PASSWORD: root
       #
       # - image: redis:2.8.19
 
@@ -57,7 +57,7 @@ jobs:
       - run: yarn run dev
       # prepare the database
       - run: cp .env.example .env
-      - run: php artisan migrate --env=testing
+      - run: php artisan migrate --env=testing --force
 
       # run tests with phpunit or codecept
 #      - run: ./vendor/bin/phpunit
