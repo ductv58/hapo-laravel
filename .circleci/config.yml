@@ -40,7 +40,7 @@ jobs:
             - v1-dependencies-
 
       - run: composer install -n --prefer-dist
-      - run: ./vendor/bin/phpcs
+#      - run: ./vendor/bin/phpcs
       - save_cache:
           key: v1-dependencies-{{ checksum "composer.json" }}
           paths:
