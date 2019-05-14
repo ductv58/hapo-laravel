@@ -16,9 +16,8 @@ jobs:
       # for database intensive operations.
       - image: circleci/mysql:5.7-ram
         environment:
-          MYSQL_ALLOW_EMPTY_PASSWORD: yes
-          MYSQL_DATABASE: hapojc
-          MYSQL_PASSWORD:
+          MYSQL_ROOT_PASSWORD: password
+          MYSQL_HOST: 127.0.0.1
       #
       # - image: redis:2.8.19
 
