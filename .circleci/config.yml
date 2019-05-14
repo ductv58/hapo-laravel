@@ -19,7 +19,7 @@ jobs:
           MYSQL_ROOT_PASSWORD: rootpw
           MYSQL_DATABASE: hapojc
           MYSQL_USER: root
-          MYSQL_PASSWORD: forge@123
+          MYSQL_PASSWORD: 
       #
       # - image: redis:2.8.19
 
