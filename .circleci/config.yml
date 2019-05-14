@@ -15,11 +15,11 @@ jobs:
       # Using the RAM variation mitigates I/O contention
       # for database intensive operations.
       - image: circleci/mysql:5.7-ram
-#        environment:
-#          MYSQL_ROOT_PASSWORD: rootpw
-#          MYSQL_DATABASE: hapojc
-#          MYSQL_USER: homestead
-#          MYSQL_PASSWORD: secret
+        environment:
+          MYSQL_ROOT_PASSWORD: rootpw
+          MYSQL_DATABASE: hapojc
+          MYSQL_USER: homestead
+          MYSQL_PASSWORD: secret
       #
       # - image: redis:2.8.19
 
